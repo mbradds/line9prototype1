@@ -8,13 +8,9 @@
     <noscript
       ><link rel="stylesheet" href="./GCWeb/wet-boew/css/noscript.min.css"
     /></noscript>
-    <link rel="stylesheet" href="css/leaflet.css" />
-    <script src="js/leaflet.js"></script>
-    <script src="js/turf.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="data/watercourses.js"></script>
-    <script src="data/centreline.js"></script>
-    <script src="data/mitigation.js"></script>
+    <link rel="stylesheet" href="src/css/leaflet.css" />
+    <script src="src/js/leaflet.js"></script>
+    <script src="src/js/jquery.js"></script>
     <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"
     integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ=="
     crossorigin=""></script>
@@ -77,9 +73,7 @@
         </header>
         <div id="map"style="height: 678px; position: relative;" tabindex="0">
           <script>
-            // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
-
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
               foo: "bar",
