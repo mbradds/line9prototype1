@@ -76,13 +76,17 @@
           </h5>
         </header>
         <div id="map"style="height: 678px; position: relative;" tabindex="0">
-          <button
-          type="button"
-          id="reset-btn"
-          class="btn btn-default col-md-12"
-          disabled="disabled"
-          >
-          </button>
+          <script>
+            // Initialize map
+            var map = L.map("map", { center: [44, -78], zoom: 6 });
+
+            // add basemap
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
+              foo: "bar",
+              attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+          </script>
         </div>
     </div>
     </section>
