@@ -433,7 +433,12 @@
                 }
               ]
             }
-            L.geoJSON(usMainline).addTo(map);
+            L.geoJSON(usMainline{
+              style: {
+                color: "#FFBE4B",
+                weight: 5,
+              },
+            }).addTo(map);
 
 
 
