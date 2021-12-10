@@ -1,4 +1,4 @@
-var enbridgeUSMainline = {
+export var usMainline = {
   "type" : "FeatureCollection",
   "crs" : {
     "type" : "name",
