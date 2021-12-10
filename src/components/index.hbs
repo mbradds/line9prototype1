@@ -109,7 +109,11 @@
             color: '#FF821E'
             })
 
+            // U.S. Mainline
 
+            import * as usMainline from '/data/my-module.geojson';
+            L.geoJSON(usMainline).addTo(map);
+            
             // Create Pop Up
             indigenousLands.bindPopup(function (layer) {
             return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
