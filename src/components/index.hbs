@@ -95,7 +95,7 @@
             // add crude oil pipelines from EIA
             var crudeOilPipelinesEIA = L.esri.featureLayer({
               url:'https://services7.arcgis.com/FGr1D95XCGALKXqM/ArcGIS/rest/services/CrudeOil_Pipelines_US_EIA/FeatureServer/0'
-              where: "Pipename = 'Portland Pipeline'"
+            
             }).addTo(map);
 
             crudeOilPipelinesEIA.setStyle({
