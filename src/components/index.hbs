@@ -121,11 +121,7 @@
               fillOpacity: 0.8
             };
 
-            L.geoJSON(line9Refineries, {
-              pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, geojsonMarkerOptions);
-              }
-            }).addTo(map);
+            L.geoJSON(line9Refineries).addTo(map);
 
             // Reset Button working on this
             function resetMap() {
