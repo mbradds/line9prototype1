@@ -13,6 +13,8 @@
     <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"
     integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ=="
     crossorigin=""></script>
+    <script src="data/EnbridgeUSMainline.js"></script>
+    <script src="data/Refinery.js"></script>
     <title>Line 9 Interactive Map Prototype</title>
     <style>
       body {
@@ -104,7 +106,18 @@
             var pipelineSystemCER = L.esri.featureLayer({
               url:'https://services5.arcgis.com/vNzamREXvX2WcX6d/ArcGIS/rest/services/PIPELINE_PROFILE_LAYER_VIEW/FeatureServer/2'
             }).addTo(map);
-              
+
+            pipelineSystemCER.setStyle({
+            color: '#FF821E'
+            })
+
+            // Add refinery data
+            L.geoJSON(line9Refineries, {
+              style: {
+                color: "#FFBE4B",
+              },
+            }).addTo(map);
+
             // Reset Button working on this
             function resetMap() {
             this.circles.eachLayer((layer) => {
