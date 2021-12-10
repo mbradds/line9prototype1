@@ -84,21 +84,27 @@
 
             // add aboriginal lands of Canada (NRCan) https://www.arcgis.com/home/item.html?id=8b9ff056f5144a788fc6d85f72c86c15
             var indigenousLands = L.esri.featureLayer({
-            url: 'https://proxyinternet.nrcan.gc.ca/arcgis/rest/services/CLSS-SATC/CLSS_Administrative_Boundaries/MapServer/0'
+              url: 'https://proxyinternet.nrcan.gc.ca/arcgis/rest/services/CLSS-SATC/CLSS_Administrative_Boundaries/MapServer/0'
             }).addTo(map);
 
             indigenousLands.setStyle({
             color: '#8c8c96'
             })
 
+            // add crude oil pipelines from EIA
             var crudeOilPipelinesEIA = L.esri.featureLayer({
-            url:'https://services7.arcgis.com/FGr1D95XCGALKXqM/ArcGIS/rest/services/CrudeOil_Pipelines_US_EIA/FeatureServer/0'
+              url:'https://services7.arcgis.com/FGr1D95XCGALKXqM/ArcGIS/rest/services/CrudeOil_Pipelines_US_EIA/FeatureServer/0'
             }).addTo(map);
 
             crudeOilPipelinesEIA.setStyle({
             color: '#871455'
             })
 
+            // add Line 9
+            var pipelineSystemCER = L.esri.featureLayer({
+              url:'https://services5.arcgis.com/vNzamREXvX2WcX6d/ArcGIS/rest/services/PIPELINE_PROFILE_LAYER_VIEW/FeatureServer/2'
+            }).addTo(map);
+              
             // Reset Button working on this
             function resetMap() {
             this.circles.eachLayer((layer) => {
