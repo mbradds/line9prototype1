@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"
     integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ=="
     crossorigin=""></script>
+    <script src= "/src/data.EnbridgeUSMainline.js"></script>
     <title>Line 9 Interactive Map Prototype</title>
     <style>
       body {
@@ -110,7 +111,6 @@
             })
 
             // U.S. Mainline
-            import { usMainline } from "../data/EnbridgeUSMainline.js";
             L.geoJSON(usMainline).addTo(map);
 
 
