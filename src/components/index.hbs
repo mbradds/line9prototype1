@@ -145,10 +145,6 @@
               url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0'
             }).addTo(map);
 
-            refineries.setStyle({
-            color: '#FF821E'
-          });
-
             // Create Pop Up
             indigenousLands.bindPopup(function (layer) {
             return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
@@ -158,6 +154,9 @@
             });
             pipelineSystemCER.bindPopup(function (layer) {
             return L.Util.template('<b>{NAME_ENGLISH}</b>', layer.feature.properties);
+            });
+            refineries..bindPopup(function (layer) {
+            return L.Util.template('<b>{NAME_EN}</b>', layer.feature.properties);
             });
           </script>
         </div>
