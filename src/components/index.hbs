@@ -143,6 +143,12 @@
 
             var refineries = L.esri.featureLayer({
               url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0'
+              pointToLayer: function (geojson, latlng) {
+                return L.circleMarker(latlng, {
+                  pane: 'blockpoints',
+                  color: 'green'
+                });
+              }
             }).addTo(map);
 
             // Create Pop Up
