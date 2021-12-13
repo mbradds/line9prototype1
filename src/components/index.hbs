@@ -118,7 +118,7 @@
 
             indigenousLands.setStyle({
             color: '#8c8c96'
-            });
+          });
 
             // add crude oil pipelines from EIA
             var crudeOilPipelinesEIA = L.esri.featureLayer({
@@ -128,23 +128,23 @@
 
             crudeOilPipelinesEIA.setStyle({
             color: '#871455'
-            });
+          });
 
             // add Line 9
             var pipelineSystemCER = L.esri.featureLayer({
               url:'https://services5.arcgis.com/vNzamREXvX2WcX6d/ArcGIS/rest/services/PIPELINE_PROFILE_LAYER_VIEW/FeatureServer/2'
             }).addTo(map);
 
+            pipelineSystemCER.setStyle({
+            color: '#FF821E'
+          });
+
             // add refineries
             var pipelineSystemCER = L.esri.featureLayer({
               url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer'
             }).addTo(map);
 
-            pipelineSystemCER.setStyle({
-            color: '#FF821E'
-            });
-
-
+            
             // Create Pop Up
             indigenousLands.bindPopup(function (layer) {
             return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
