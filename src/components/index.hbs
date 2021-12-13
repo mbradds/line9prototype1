@@ -85,8 +85,27 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Initialize search control
+            var searchControl = L.esri.Geocoding.geosearch({
+              position: 'topright',
+              placeholder: 'Enter an address or place e.g. 1 York St',
+              useMapBounds: false,
+              providers: [L.esri.Geocoding.arcgisOnlineProvider({
+                apikey: "AAPKe15c3f33c2f0463ea089d398c8e033begb778F6eXlI6IT8qkBCa0Mr4NFl6pY9DQ20s7r0J5rq-bkXVc0ssVUjfFx78w8aN"
+                nearby: {
+                  lat: 44,
+                  lng: -78
+                }
+              })]
+            }).addTo(map);
 
+            var results = L.layerGroup().addTo(map);
 
+            searchControl.on('results', function (data) {
+              results.clearLayers();
+              for (var i = data.results.length - 1; i >= 0; i--) {
+                results.addLayer(L.marker(data.results[i].latlng));
+              }
+            });
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
