@@ -1,4 +1,4 @@
-export var usMainline = {
+var usMainline = {
   "type" : "FeatureCollection",
   "crs" : {
     "type" : "name",
