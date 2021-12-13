@@ -145,6 +145,12 @@
               url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0'
             }).addTo(map);
 
+            refineries.pointToLayer(feature, latlng) {
+              return L.circleMarker(latlng, {
+                color: 'green'
+              });
+            }
+
             // Create Pop Up
             indigenousLands.bindPopup(function (layer) {
             return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
