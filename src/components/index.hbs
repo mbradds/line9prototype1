@@ -140,14 +140,14 @@
           });
 
             // add refineries
-
-
+            var refineryIcon = L.icon({
+              iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data',
+            });
 
             var refineries = L.esri.featureLayer({
               url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0',
               pointToLayer: function (geojson, latlng) {
-                return L.icon({
-                  iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data',
+                return L.marker(latlng, {icon: refineryIcon})
                 });
               }
             }).addTo(map);
