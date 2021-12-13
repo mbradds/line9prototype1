@@ -84,6 +84,13 @@
             // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
+            // add basemap
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
+            foo: "bar",
+            attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+
             // Initialize search control
             var searchControl = L.esri.Geocoding.geosearch({
               position: 'topright',
@@ -106,13 +113,6 @@
                 results.addLayer(L.marker(data.results[i].latlng));
               }
             });
-
-            // add basemap
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
-            foo: "bar",
-            attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            }).addTo(map);
 
             // add aboriginal lands of Canada (NRCan) https://www.arcgis.com/home/item.html?id=8b9ff056f5144a788fc6d85f72c86c15
             var indigenousLands = L.esri.featureLayer({
