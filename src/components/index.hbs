@@ -139,11 +139,15 @@
             color: '#FF821E'
           });
 
-            // add refineries
+            // add refinery icon
             var refineryIcon = L.icon({
-              iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data',
+              iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data',//refinery icon
+              iconSize:     [38, 95], // size of the icon
+              iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+              popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
             });
 
+            // add refineries
             var refineries = L.esri.featureLayer({
               url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0',
               pointToLayer: function (geojson, latlng) {
@@ -151,6 +155,10 @@
               }
             }).addTo(map);
 
+            // add clipped U.S. Mainline data
+            var usMainline = L.esri.featureLayer({
+              url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Enbridge_U_S__Mainline/FeatureServer/0'
+            }).addTo(map);
 
 
             // Create Pop Up
