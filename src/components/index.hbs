@@ -80,14 +80,21 @@
           </h5>
         </header>
         <div id="map"style="height: 678px; position: relative;" tabindex="0">
-          <ul class="pager">
-            <li><a href="#" rel="prev">Previous</a></li>
-            <li><a href="#" rel="next">Next</a></li>
-          </ul>
+          <button type="button" id="reset-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Reset Map</button>
           <script>
             // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
+            resetMapListener() {
+              const resetBtnDiv = `reset-btn`;
+              const resetBtn = document.getElementById(resetBtnDiv);
+              resetBtn.addEventListener("click", () => {
+                map.setView([44, -78], 6)
+                resetBtn.className = "btn btn-default";
+                document.getElementById(`nearby-flag`).innerHTML = ``;
+              });
+            }
+          }
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
             foo: "bar",
