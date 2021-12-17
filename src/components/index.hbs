@@ -88,7 +88,7 @@
               const resetBtnDiv = `reset-btn`;
               const resetBtn = document.getElementById(resetBtnDiv);
               resetBtn.addEventListener("click", () => {
-                map.setView([44, -78], 6)
+                map.setView([44, -78], 6);
                 resetBtn.className = "btn btn-default";
                 document.getElementById(`nearby-flag`).innerHTML = ``;
               });
