@@ -85,10 +85,6 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Reset Button
-            var helloPopup = L.popup().setContent('Hello World!');
-            L.easyButton('fa-globe', function(btn, map){
-              helloPopup.setLatLng(map.getCenter()).openOn(map);
-            }).addTo(map);
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
