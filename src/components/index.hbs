@@ -85,14 +85,17 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Reset Button
-            var resetButton = L.Control.extend({
-              options: {
-                position: 'bottomleft'
-              },
+            L.Control.resetButton = L.Control.extend({
               onAdd: function (map) {
-                L.DomUtil.create('button', 'reset-btn');
+                var addResetButton = L.DomUtil.create('button', 'reset-btn');
+                return addResetButton
               },
-            }).addTo(map);
+            });
+
+            L.control.resetButton = function(opts) {
+              return new L.Control.Watermark(opts);
+            }
+            L.Control.resetButton({ position: 'bottomleft' }).addTo(map);
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
