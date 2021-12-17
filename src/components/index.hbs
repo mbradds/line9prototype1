@@ -62,6 +62,13 @@
         padding-bottom: 0px;
         position: relative;
       }
+      #reset-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        z-index: 400;
+      }
     </style>
   </head>
   <body>
@@ -80,6 +87,7 @@
           </h5>
         </header>
         <div id="map"style="height: 678px; position: relative;" tabindex="0">
+          <button type="button" id="reset-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Reset Map</button>
           <script>
             // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
@@ -89,8 +97,6 @@
               const resetBtn = document.getElementById(resetBtnDiv);
               resetBtn.addEventListener("click", () => {
                 map.setView([44, -78], 6);
-                resetBtn.className = "btn btn-default";
-                document.getElementById(`nearby-flag`).innerHTML = ``;
               });
             }
           }
