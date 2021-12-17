@@ -85,14 +85,10 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Reset Button
-            L.Control.resetButton = L.Control.extend({
-              onAdd: function (map) {
-                var addResetButton = L.DomUtil.create('button', 'reset-btn');
-                return addResetButton
-              },
-            });
-
-            L.Control.resetButton({ position: 'bottomleft' }).addTo(map);
+            var helloPopup = L.popup().setContent('Hello World!');
+            L.easyButton('fa-globe', function(btn, map){
+              helloPopup.setLatLng(map.getCenter()).openOn(map);
+            }).addTo(map);
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
