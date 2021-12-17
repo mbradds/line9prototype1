@@ -86,6 +86,14 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Reset Button
+            var resetMapListener() {
+              const resetBtn = document.getElementById("reset-btn");
+              resetBtn.addEventListener("click", () => {
+                map.setView([44, -78], 6);
+              });
+            }
+
+            resetMapListener.addTo(map);
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
