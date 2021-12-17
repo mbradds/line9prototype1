@@ -93,7 +93,7 @@
                 var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
                 return container;
               },
-            });
+            }).addTo(map);
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
