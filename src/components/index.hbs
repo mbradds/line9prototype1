@@ -62,6 +62,9 @@
         padding-bottom: 0px;
         position: relative;
       }
+      #Sidecar{
+
+      }
     </style>
   </head>
   <body>
@@ -81,7 +84,7 @@
         </header>
         <div id="map"style="height: 678px; position: relative;" tabindex="0">
           <div class="leaflet-bottom leaflet-left"><div class="leaflet-control"><button type="button" id="reset-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Reset Map</button></div>
-          <div class="leaflet-bottom leaflet-right">Test</div>
+          <div id="Sidecar" class = 'container-fluid'>Test</div>
           <script>
             // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
