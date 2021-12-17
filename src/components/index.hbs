@@ -85,6 +85,15 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Reset Button
+            var resetButton = L.Control.extend({
+              options: {
+                position: 'bottomleft'
+              },
+              onAdd: function (map) {
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+                return container;
+              },
+            });
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
