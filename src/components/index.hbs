@@ -92,10 +92,10 @@
               });
 
             var storyBtn = document.getElementById("tell-me-more-btn");
+            var popup = L.popup()
+              .setLatLng([44, -78])
+              .setContent("I am a standalone popup.")
             storyBtn.addEventListener("click", () => {
-              var popup = L.popup()
-                .setLatLng([44, -78])
-                .setContent("I am a standalone popup.")
               popup.addTo(map);
               });
 
