@@ -178,8 +178,7 @@
             crudeOilPipelinesEIA.bindPopup(function (layer) {
             return L.Util.template('<b>{Pipename}, {Opername}</b>', layer.feature.properties);
             });
-            pipelineSystemCER.bindPopup(function (layer) {
-            return L.Util.template('<b>{NAME_ENGLISH}</b>', layer.feature.properties);
+            pipelineSystemCER.bindPopup("Did you know that Line 9 has been reversed twice? It originally flowed from west to east for 23 years and was reversed in 1999 and then again in 2015. It now flows from west to east again. The line was reversed in 1999 so that crude oil imports received via the Montreal Pipeline from Portland, Maine could be transported from Montreal to serve refineries in Sarnia and Nanticoke.");
             });
             refineries.bindPopup(function (layer) {
             return L.Util.template('<b>{NAME_EN}</b>', layer.feature.properties);
