@@ -85,16 +85,21 @@
             // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
-            var popup = L.popup()
-            .setLatLng(44, -78)
-            .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-            .openOn(map);
-
             // Reset Button
             var resetBtn = document.getElementById("reset-btn");
             resetBtn.addEventListener("click", () => {
                 map.setView([44, -78], 6);
               });
+
+            var storyBtn = document.getElementById("reset-btn");
+            var popup = L.popup()
+              .setLatLng([51.513, -0.09])
+              .setContent("I am a standalone popup.")
+              .openOn(map);
+
+            storyBtn.addEventListener("click", () => {
+              popup()
+            });
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
