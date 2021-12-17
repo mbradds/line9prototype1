@@ -176,7 +176,7 @@
             return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
             });
             crudeOilPipelinesEIA.bindPopup(function (layer) {
-            return L.Util.template('<b>{Pipename}, {Opername}</b>', layer.feature.properties);
+            return L.Util.template('<b>{Pipename}, {Opername}</b><br>The only other oil pipeline servicing Quebecs refineries is the Montreal Pipeline, but throughputs on the pipeline have been very low since 2016.' , layer.feature.properties);
             });
             pipelineSystemCER.bindPopup("<b>Line 9</b><br>Did you know that Line 9 has been reversed twice? It originally flowed from west to east for 23 years and was reversed in 1999 and then again in 2015. It now flows from west to east again.");
             refineries.bindPopup(function (layer) {
