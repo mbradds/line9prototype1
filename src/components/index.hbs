@@ -91,11 +91,11 @@
                 map.setView([44, -78], 6);
               });
 
-            var storyBtn = document.getElementById("reset-btn");
+            var storyBtn = document.getElementById("tell-me-more-btn");
             var popup = L.popup()
-              .setLatLng([51.513, -0.09])
+              .setLatLng([44, -78])
               .setContent("I am a standalone popup.")
-              .openOn(map);
+              .openOn(storyBtn.addEventListener("click"));
 
 
             // add basemap
