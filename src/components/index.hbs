@@ -85,23 +85,7 @@
             var map = L.map("map", { center: [44, -78], zoom: 6 });
 
             // Reset Button
-            var ourCustomControl = L.Control.extend({
-              options: {
-                position: 'bottomleft'
-              },
-              onAdd: function (map) {
-                return container;
-              },
-            });
-            onAdd: function (map) {
-              var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-              container.style.backgroundColor = 'white';
-              container.style.width = '30px';
-              container.style.height = '30px';
-              container.onclick = function(){
-                console.log('buttonClicked');
-                return container;
-              }
+
             var resetBtn = document.getElementById(`reset-btn`);
             resetBtn.addEventListener("click", () => {
               map.setView([44, -78], 6);
