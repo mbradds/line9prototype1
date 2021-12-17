@@ -90,8 +90,7 @@
                 position: 'bottomleft'
               },
               onAdd: function (map) {
-                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-                return container;
+                L.DomUtil.create('button', 'reset-btn');
               },
             }).addTo(map);
 
