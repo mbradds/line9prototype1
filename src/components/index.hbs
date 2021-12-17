@@ -80,7 +80,7 @@
           </h5>
         </header>
         <div id="map"style="height: 678px; position: relative;" tabindex="0">
-          <div class="leaflet-bottom leaflet-left"><div class="leaflet-control"><button type="button" id="tell-me-more-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Tell me more...</button><button type="button" id="reset-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Reset Map</button></div>
+          <div class="leaflet-bottom leaflet-left"><div class="leaflet-control"><button type="button" id="reset-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Reset Map</button></div>
           <script>
             // Initialize map
             var map = L.map("map", { center: [44, -78], zoom: 6 });
@@ -90,15 +90,6 @@
             resetBtn.addEventListener("click", () => {
                 map.setView([44, -78], 6);
               });
-
-            var storyBtn = document.getElementById("tell-me-more-btn");
-            var popup = L.popup()
-              .setLatLng([44, -78])
-              .setContent("I am a standalone popup.")
-            storyBtn.addEventListener("click", () => {
-              popup.openOn(map);
-            });
-
 
             // add basemap
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
