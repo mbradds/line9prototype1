@@ -198,6 +198,11 @@
             refineries.bindPopup(function (layer) {
             return L.Util.template('<b>{NAME_EN}</b><br> {Line9_PopUp}', layer.feature.properties);
             });
+            oilTanker.bindPopup("The Valero Jean Gaulin Refinery recieves oil from oil tankers on the Saint Lawrence river. It recieves international imports coming from the North Atlantic Ocean and oil from Enbridge Line 9 shipped north from Montreal");
+            refineries.bindPopup(function (layer) {
+            return L.Util.template('<b>{NAME_EN}</b><br> {Line9_PopUp}', layer.feature.properties);
+            });
+
           </script>
         </div>
     </div>
