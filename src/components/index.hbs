@@ -196,7 +196,7 @@
             });
             pipelineSystemCER.bindPopup("<b>Line 9</b><br>Did you know that Line 9 has been reversed twice? It originally flowed from west to east for 23 years and was reversed in 1999 and then again in 2015. It now flows from west to east again.");
             refineries.bindPopup(function (layer) {
-            return L.Util.template('<b>{NAME_EN}</b><br>Quebec has two refineries. Historically, they were not well connected to domestic crude oil production, and have had to rely on international oil supply. Often this oil came by oil tankers in the St. Lawrence or via Montreal Pipeline from Portland, Maine’s marine port.<br><br> With the reversal of Line 9 to flow eastward, Quebec refineries now can process more western Canadian crude oil and are less exposed to international crude oil market fluctuations.', layer.feature.properties);
+            return L.Util.template('<b>{NAME_EN}</b><br> {Line9_PopUp}', layer.feature.properties);
             });
           </script>
         </div>
