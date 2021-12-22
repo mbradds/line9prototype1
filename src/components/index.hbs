@@ -66,7 +66,7 @@
       .legend {
         background: #f8f4f4;
         padding-top: 5%;
-        padding-bottom: 5%;
+        padding-bottom: 1%;
         padding-right: 5%;
         padding-left: 5%;
         border: 0.5px solid black
@@ -217,10 +217,11 @@
             var div = L.DomUtil.create("div", "legend");
             div.innerHTML =
             "<p><b>Legend</b><br>" +
-            '<a href="#"><img title="oil tanker" alt="oil tanker" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a> Oil Tanker<br>' +
-            '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a> Refinery<br>' +
-            '<a href="#"><img title="pipeline system" alt="pipeline system" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/887024beb23b4f8c985ebff628974b06/data" width="30px"></a> Enbridge Line 9<br>' +
-            '<a href="#"><img title="other pipelines" alt="other pipelines" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/7464de010e2b45e5a5b152d4297bbd30/data" width="30px"></a>Other Pipelines<br>' +
+            '<hr size="8" width="90%" color="grey">'+
+            '<a href="#"><img title="oil tanker" alt="oil tanker" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a>    Oil Tanker<br>' +
+            '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a>    Refinery<br>' +
+            '<a href="#"><img title="pipeline system" alt="pipeline system" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/887024beb23b4f8c985ebff628974b06/data" width="30px"></a>    Enbridge Line 9<br>' +
+            '<a href="#"><img title="other pipelines" alt="other pipelines" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/7464de010e2b45e5a5b152d4297bbd30/data" width="30px"></a>    Other Pipelines<br>' +
             "</p>";
             return div;
           };
