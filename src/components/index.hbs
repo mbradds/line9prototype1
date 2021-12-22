@@ -215,13 +215,12 @@
           legend.onAdd = function (map) {
             var div = L.DomUtil.create("div", "legend");
             div.innerHTML =
-            "<p><b>Legend</b></p><hr>" +
-            "<p><ul style='list-style: none;'>" +
-            '<li><a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a> Oil Tanker</li>' +
-            '<li><a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a> Refinery</li>' +
-            "<li>Enbridge Line 9</li>" +
-            "<li>Other Pipelines</li>" +
-            "</ul></p>";
+            "<p><b>Legend</b><hr>" +
+            '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a> Oil Tanker<br>' +
+            '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a> Refinery<br>' +
+            "Enbridge Line 9<br>" +
+            "Other Pipelines<br>" +
+            "</p>";
             return div;
           };
           legend.addTo(map);
