@@ -187,7 +187,7 @@
           });
 
 
-            // Create Pop Up
+            // Create Pop Ups
             indigenousLands.bindPopup(function (layer) {
             return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
             });
@@ -201,8 +201,23 @@
             });
             oilTanker.bindPopup("<b>Oil Tankers on the Saint Lawrence river</b><br>The Valero Jean Gaulin Refinery recieves oil from oil tankers on the Saint Lawrence river. It recieves international imports coming from the North Atlantic Ocean and oil from Enbridge Line 9 shipped north from Montreal"
           );
-            usMainline.bindPopup("Enbridge U.S. Mainline"
+            usMainline.bindPopup("<b>Enbridge U.S. Mainline</b>"
           );
+          var legend = L.control({ position: "bottomright" });
+          legend.onAdd = function (map) {
+            var div = L.DomUtil.create("div", "legend");
+            div.innerHTML =
+            "<p><b>Line 9 Pipeline Profile Map</b></p><hr>" +
+            "<p><ul>" +
+            "<li>Watercourse Crossings</li>" +
+            "<li>Traditional Land Use Areas</li>" +
+            "<li>Wetlands</li>" +
+            "<li>Historical Resource Locations</li>" +
+            "<li>Paleontological Locations</li>" +
+            "</ul></p>";
+            return div;
+          };
+          legend.addTo(map);
           </script>
         </div>
     </div>
