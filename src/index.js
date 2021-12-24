@@ -119,6 +119,7 @@ const refineryIcon = L.icon({
 const refineries = esri
   .featureLayer({
     url: "https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0",
+    minZoom: 6,
     pointToLayer(geojson, latlng) {
       return L.marker(latlng, { icon: refineryIcon });
     },
@@ -138,6 +139,7 @@ const oilTankerIcon = L.icon({
 const oilTanker = esri
   .featureLayer({
     url: "https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Ships/FeatureServer/0",
+    minZoom: 6,
     pointToLayer(geojson, latlng) {
       return L.marker(latlng, { icon: oilTankerIcon });
     },
