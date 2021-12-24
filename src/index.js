@@ -11,6 +11,9 @@ function leafletBaseMap(config) {
   const map = new L.map(config.div).setView(
     config.initZoomTo,
     config.initZoomLevel
+    config.minZoom
+    config.maxZoom
+    
   );
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
     foo: "bar",
