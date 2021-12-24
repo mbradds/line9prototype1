@@ -9,8 +9,8 @@ import "./main.css";
 // Initialize map
 function leafletBaseMap(config) {
   const map = new L.map(config.div,{
-    minZoom: 4,
-    maxZoom: 10
+    minZoom: 4,// will apply to all maps
+    maxZoom: 10// will apply to all maps
   }).setView(
     config.initZoomTo,
     config.initZoomLevel,
@@ -75,6 +75,7 @@ searchControl.on("results", (data) => {
 const indigenousLands = esri
   .featureLayer({
     url: "https://proxyinternet.nrcan.gc.ca/arcgis/rest/services/CLSS-SATC/CLSS_Administrative_Boundaries/MapServer/0",
+    minZoom: 6
   })
   .addTo(map);
 
