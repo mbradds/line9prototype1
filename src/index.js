@@ -41,6 +41,8 @@ const map = leafletBaseMap({
   div: "map",
   initZoomTo: [44, -78],
   initZoomLevel: 6,
+  minZoom: 3,
+  maxZoom: 8
 });
 addResetBtn(map);
 resetBtnListener(map);
