@@ -9,8 +9,8 @@ import "./main.css";
 // Initialize map
 function leafletBaseMap(config) {
   const map = new L.map(config.div,{
-    minZoom: 6,
-    maxZoom: 6
+    minZoom: 8,
+    maxZoom: 4
   }).setView(
     config.initZoomTo,
     config.initZoomLevel,
