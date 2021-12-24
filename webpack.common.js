@@ -79,6 +79,18 @@ export default {
           // knownHelpersOnly: false,
         },
       },
+      {
+        test: /\.png$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            publicPath: "../../img",
+            outputPath: "img",
+            name: "[name].png",
+          },
+        },
+        type: "javascript/auto",
+      },
     ],
   },
 

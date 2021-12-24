@@ -8,70 +8,8 @@
     <noscript
       ><link rel="stylesheet" href="./GCWeb/wet-boew/css/noscript.min.css"
     /></noscript>
-    <!-- Load Leaflet from CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <!-- Load Esri Leaflet from CDN -->
-    <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"
-    integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ=="
-    crossorigin=""></script>
-    <!-- Load Esri Leaflet Geocoder from CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.css"
-    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
-    crossorigin="">
-    <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.js"
-    integrity="sha512-enHceDibjfw6LYtgWU03hke20nVTm+X5CRi9ity06lGQNtC9GkBNl/6LoER6XzSudGiXy++avi1EbIg9Ip4L1w=="
-    crossorigin=""></script>
     <title>Line 9 Interactive Map Prototype</title>
-    <style>
-      html,
-      body,
-      {
-        font-size: 20px;
-        line-height: 1.65em;
-      }
-      #map {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        max-height: 700px !important;
-      }
-      #map-panel-body {
-        height: 88%;
-        padding: 0px !important;
-        position: relative;
-      }
-      #map-panel-heading {
-        .header-footer-percent {
-          height: 6%;
-        }
-      }
-      #map-panel-heading {
-        position: relative;
-      }
-      #map-panel-footing {
-        height: 6%;
-        width: 100%;
-        /* position: relative; */
-        display: flex;
-        flex-wrap: wrap;
-        flex-flow: row wrap;
-        align-items: center;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        position: relative;
-      }
-      .legend {
-        background: #f8f4f4;
-        padding-top: 5%;
-        padding-bottom: 1%;
-        padding-right: 5%;
-        padding-left: 5%;
-        border: 0.5px solid #aaaaaa
-      }
-    </style>
+    {{!-- styles are now in src/main.css --}}
   </head>
   <body>
     <div class="container">
@@ -81,162 +19,16 @@
           <p class="small">Updated December 2021</p>
         </div>
       </div>
-      <div class="div.col-md-9.col-sm-12"></div>
-      <section class = "panel panel-default" id="map-panel" dbHeight = 700>
-        <header class="panel-heading">
-          <h5 class="panel-title" id="leaflet-map-title">
-            Line 9 Interactive Map
-          </h5>
-        </header>
-        <div id="map"style="height: 678px; position: relative;" tabindex="0">
-          <div class="leaflet-bottom leaflet-left"><div class="leaflet-control"><button type="button" id="reset-btn" class="btn btn-default btn-block btn-lg" style="outline: none;">Reset Map</button></div>
-          <script>
-            // Initialize map
-            var map = L.map("map", { center: [44, -78], zoom: 6 });
-
-            // Reset Button
-            var resetBtn = document.getElementById("reset-btn");
-            resetBtn.addEventListener("click", () => {
-                map.setView([44, -78], 6);
-              });
-
-            // add basemap
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
-            foo: "bar",
-            attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            }).addTo(map);
-
-            // Initialize search control
-            var searchControl = L.esri.Geocoding.geosearch({
-              position: 'topright',
-              placeholder: 'Enter an address or place e.g. 1 York St',
-              useMapBounds: false,
-              providers: [L.esri.Geocoding.arcgisOnlineProvider({
-                apikey: "AAPKe15c3f33c2f0463ea089d398c8e033begb778F6eXlI6IT8qkBCa0Mr4NFl6pY9DQ20s7r0J5rq-bkXVc0ssVUjfFx78w8aN"
-                }
-              )]
-            }).addTo(map);
-
-            var results = L.layerGroup().addTo(map);
-
-            searchControl.on('results', function (data) {
-              results.clearLayers();
-              for (var i = data.results.length - 1; i >= 0; i--) {
-                results.addLayer(L.marker(data.results[i].latlng));
-              }
-            });
-
-            // add aboriginal lands of Canada (NRCan) https://www.arcgis.com/home/item.html?id=8b9ff056f5144a788fc6d85f72c86c15
-            var indigenousLands = L.esri.featureLayer({
-              url: 'https://proxyinternet.nrcan.gc.ca/arcgis/rest/services/CLSS-SATC/CLSS_Administrative_Boundaries/MapServer/0'
-            }).addTo(map);
-
-            indigenousLands.setStyle({
-            color: '#8c8c96'
-          });
-
-            // add crude oil pipelines from EIA
-            var crudeOilPipelinesEIA = L.esri.featureLayer({
-              url:'https://services7.arcgis.com/FGr1D95XCGALKXqM/ArcGIS/rest/services/CrudeOil_Pipelines_US_EIA/FeatureServer/0',
-              where: "Pipename = 'Portland Pipeline'"
-            }).addTo(map);
-
-            crudeOilPipelinesEIA.setStyle({
-            color: '#871455'
-          });
-
-            // add Line 9
-            var pipelineSystemCER = L.esri.featureLayer({
-              url:'https://services5.arcgis.com/vNzamREXvX2WcX6d/ArcGIS/rest/services/PIPELINE_PROFILE_LAYER_VIEW/FeatureServer/2'
-            }).addTo(map);
-
-            pipelineSystemCER.setStyle({
-            color: '#FF821E'
-          });
-
-            // add refinery icon
-            var refineryIcon = L.icon({
-              iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data',//refinery icon
-              iconSize:     [30, 20], // size of the icon
-              iconAnchor:   [10, 15], // point of the icon which will correspond to marker's location
-              popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
-            });
-
-            // add refineries
-            var refineries = L.esri.featureLayer({
-              url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Refinery/FeatureServer/0',
-              pointToLayer: function (geojson, latlng) {
-                return L.marker(latlng, {icon: refineryIcon})
-              }
-            }).addTo(map);
-
-            // add oil tanker icon
-            var oilTankerIcon = L.icon({
-              iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data',//refinery icon
-              iconSize:     [40, 16], // size of the icon
-              iconAnchor:   [10, 15], // point of the icon which will correspond to marker's location
-              popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
-            });
-
-            // add refineries
-            var oilTanker = L.esri.featureLayer({
-              url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Ships/FeatureServer/0',
-              pointToLayer: function (geojson, latlng) {
-                return L.marker(latlng, {icon: oilTankerIcon})
-              }
-            }).addTo(map);
-
-            // add clipped U.S. Mainline data
-            var usMainline = L.esri.featureLayer({
-              url:'https://services5.arcgis.com/EptOMJg420QIUhVN/arcgis/rest/services/Enbridge_U_S__Mainline/FeatureServer/0'
-            }).addTo(map);
-            usMainline.setStyle({
-            color: '#871455'
-            });
-            var flowDirectionicon = L.icon({
-              iconUrl: 'https://hoglund.maps.arcgis.com/sharing/rest/content/items/78b707a35c4247d5aaa73cac60a1d46e/data',//flow direction icon
-              iconSize:     [100, 70], // size of the icon
-              iconAnchor:   [10, 15], // point of the icon which will correspond to marker's location
-              popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
-            });
-
-            // add flow arrow
-            L.marker([43.7, -77],{icon: flowDirectionicon}).addTo(map);
-
-
-            // Create Pop Ups
-            indigenousLands.bindPopup(function (layer) {
-            return L.Util.template('<b>{adminAreaNameEng}</b>', layer.feature.properties);
-            });
-            crudeOilPipelinesEIA.bindPopup(function (layer) {
-            return L.Util.template('<b>Montreal/{Pipename}</b><br>The only other oil pipeline servicing Quebec refineries is the Montreal Pipeline, but throughputs on the pipeline have been very low since 2016.' , layer.feature.properties);
-            });
-            pipelineSystemCER.bindPopup("<b>Line 9</b><br>Did you know that Line 9 has been reversed twice? It originally flowed from west to east for 23 years and was reversed in 1999 and then again in 2015. It now flows from west to east again."
-          );
-            refineries.bindPopup(function (layer) {
-            return L.Util.template('<b>{NAME_EN}</b><br> {Line9_PopUp}', layer.feature.properties);
-            });
-            oilTanker.bindPopup("<b>Oil Tankers on the Saint Lawrence river</b><br>The Valero Jean Gaulin Refinery recieves oil from oil tankers on the Saint Lawrence river. It recieves international imports coming from the North Atlantic Ocean and oil from Enbridge Line 9 shipped north from Montreal"
-          );
-            usMainline.bindPopup("<b>Enbridge U.S. Mainline</b>"
-          );
-          var legend = L.control({ position: "bottomright" });
-          legend.onAdd = function (map) {
-            var div = L.DomUtil.create("div", "legend");
-            div.innerHTML =
-            "<p><b>Legend</b><br></p>" +
-            '<p><a href="#"><img title="oil tanker" alt="oil tanker" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Oil Tanker<br>' +
-            '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Refinery<br>' +
-            '<a href="#"><img title="pipeline system" alt="pipeline system" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/887024beb23b4f8c985ebff628974b06/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Enbridge Line 9<br>' +
-            '<a href="#"><img title="other pipelines" alt="other pipelines" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/7464de010e2b45e5a5b152d4297bbd30/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Other Pipeline<br>' +
-            "</p>";
-            return div;
-          };
-          legend.addTo(map);
-          </script>
+      <div class="row">
+        <div class="col-md-12">
+          <section class="panel panel-default" id="map-panel">
+            <header class="panel-heading">
+              <h5 class="panel-title">Line 9 Interactive Map</h5>
+            </header>
+            <div class="panel-body" id="map"></div>
+          </section>
         </div>
+      </div>
     </div>
-    </section>
   </body>
 </html>

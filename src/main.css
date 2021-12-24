@@ -5,3 +5,24 @@
   color: #871455;
   margin-bottom: 0px;
 }
+
+html,
+body {
+  font-size: 20px;
+  line-height: 1.65em;
+}
+#map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 678px;
+}
+
+.legend {
+  background: #f8f4f4;
+  padding-top: 5%;
+  padding-bottom: 1%;
+  padding-right: 5%;
+  padding-left: 5%;
+  border: 0.5px solid #aaaaaa;
+}
