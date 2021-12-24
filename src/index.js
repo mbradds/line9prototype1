@@ -12,7 +12,7 @@ function leafletBaseMap(config) {
     config.initZoomTo,
     config.initZoomLevel,
   );
-  map.maxZoom(5)
+  map.maxZoom(5);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}", {
     foo: "bar",
     attribution:
