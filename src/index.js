@@ -194,6 +194,7 @@ legend.onAdd = function (map) {
   const div = L.DomUtil.create("div", "legend");
   div.innerHTML =
     "<p><b>Legend</b><br></p>" +
+    '<p><a href="#"><img title="flow direction" alt="flow direction" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/78b707a35c4247d5aaa73cac60a1d46e/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Direction of Flow<br>' +
     '<p><a href="#"><img title="oil tanker" alt="oil tanker" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Oil Tanker<br>' +
     '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Refinery<br>' +
     '<a href="#"><img title="pipeline system" alt="pipeline system" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/887024beb23b4f8c985ebff628974b06/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Enbridge Line 9<br>' +
