@@ -177,7 +177,7 @@ crudeOilPipelinesEIA.bindPopup((layer) => // Montreal Pipeline pop up
   )
 );
 pipelineSystemCER.bindPopup( // Line 9 pop up
-  "<b>Line 9</b><br> Line 9 began operating in 1976, carying crude oil from Western Canada to refineries in Quebec. Major recent projects on the pipeline include reversal and expansion projects for Line 9A [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/706437'> Folder 7063437</a>] and Line 9B [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/890819'> Folder 890819</a>] in these folders you can find the application and decision as well as evidence provided by Enbridge and the intervenors"
+  "<b>Line 9</b><br> Line 9 began operating in 1976, carying crude oil from Western Canada to refineries in Quebec. Major recent projects on the pipeline include reversal and expansion projects for Line 9A [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/706437'>Folder 7063437</a>] and Line 9B [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/890819'> Folder 890819</a>] in these folders you can find the application, decision and evidence provided by Enbridge and the intervenors"
 );
 flowDirection.bindPopup( // Flow direction arrow pop up
   "<b>Direction of Flow</b><br>Did you know that Line 9 has been reversed twice? It originally flowed from west to east for 23 years and was reversed in 1999 and then again in 2015. It now flows from west to east again."
