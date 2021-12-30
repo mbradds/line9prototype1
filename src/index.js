@@ -177,7 +177,7 @@ crudeOilPipelinesEIA.bindPopup((layer) => // Montreal Pipeline pop up
   )
 );
 pipelineSystemCER.bindPopup( // Line 9 pop up
-  "<b>Line 9</b><br> Line 9 began operating in 1976, carying crude oil from Western Canada to refineries in Quebec. Major recent projects on the pipeline include reversal and expansion projects for Line 9A [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/706437'>&nbsp;Folder 7063437</a>] and Line 9B [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/890819'>&nbsp;Folder 890819</a>] in these folders you can find the application, decision and evidence provided by Enbridge and the intervenors"
+  "<b>Line 9</b><br> Line 9 began operating in 1976, carying crude oil from Western Canada to refineries in Quebec. Major recent projects on the pipeline include reversal and expansion projects for Line 9A [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/706437'>&nbsp;Folder 7063437</a>] and Line 9B [<a href='https://apps.cer-rec.gc.ca/REGDOCS/Item/View/890819'>&nbsp;Folder 890819</a>] in these folders you can find the application, evidence provided by Enbridge and the intervenors, and decision"
 );
 flowDirection.bindPopup( // Flow direction arrow pop up
   "<b>Direction of Flow</b><br>Did you know that Line 9 has been reversed twice? It originally flowed from west to east for 23 years and was reversed in 1999 and then again in 2015. It now flows from west to east again."
@@ -188,10 +188,12 @@ refineries.bindPopup((layer) =>
     layer.feature.properties
   )
 );
-oilTanker.bindPopup(
+oilTanker.bindPopup(// pop up on oil tanker icon
   "<b>Oil Tankers on the Saint Lawrence river</b><br>The Valero Jean Gaulin Refinery recieves oil from oil tankers on the Saint Lawrence river. It recieves international imports coming from the North Atlantic Ocean and oil from Enbridge Line 9 shipped north from Montreal"
 );
-usMainline.bindPopup("<b>Enbridge U.S. Mainline</b>");
+usMainline.bindPopup(// pop up for the U.S. Mainline 
+  "<b>Enbridge U.S. Mainline</b><br>Crude oil is carried from Western Canada on the the Enbridge Canadian Mainline to Line 9 through Lines 5 and 78B on the Enbridge U.S. Mainline. Line 9 can accept crude oil imported from the U.S. in addition to crude oil from Western Canada"
+);
 
 // legend
 const legend = L.control({ position: "bottomright" });
@@ -199,7 +201,7 @@ legend.onAdd = function (map) {
   const div = L.DomUtil.create("div", "legend");
   div.innerHTML =
     "<p><b>Legend</b><br></p>" +
-    '<p><a href="#"><img title="flow direction" alt="flow direction" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/78b707a35c4247d5aaa73cac60a1d46e/data" width="25px"></a>&nbsp;&nbsp;&nbsp;Direction of Flow<br>' +
+    '<p><a href="#"><img title="flow direction" alt="flow direction" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/78b707a35c4247d5aaa73cac60a1d46e/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Direction of Flow<br>' +
     '<p><a href="#"><img title="oil tanker" alt="oil tanker" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/43b69aa0b3f847e1bb68e0d8dde88972/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Oil Tanker<br>' +
     '<a href="#"><img title="refinery" alt="refinery" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/184d90a780ad47159dab7c9a1fbcd3ac/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Refinery<br>' +
     '<a href="#"><img title="pipeline system" alt="pipeline system" src="https://hoglund.maps.arcgis.com/sharing/rest/content/items/887024beb23b4f8c985ebff628974b06/data" width="30px"></a>&nbsp;&nbsp;&nbsp;Enbridge Line 9<br>' +
