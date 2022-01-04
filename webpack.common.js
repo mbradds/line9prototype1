@@ -81,11 +81,25 @@ export default {
       },
       {
         test: /\.png$/,
+        exclude: /[\\/]node_modules[\\/](leaflet)[\\/]/,
         use: {
           loader: "file-loader",
           options: {
             publicPath: "../../img",
             outputPath: "img",
+            name: "[name].png",
+          },
+        },
+        type: "javascript/auto",
+      },
+      {
+        test: /\.png$/,
+        include: /[\\/]node_modules[\\/](leaflet)[\\/]/,
+        use: {
+          loader: "file-loader",
+          options: {
+            publicPath: "../../images",
+            outputPath: "images",
             name: "[name].png",
           },
         },
